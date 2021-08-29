@@ -35,10 +35,9 @@ const Contact = () => {
     const onFileInputChange = (event) => {
         const { files } = event.target;
         // do something with your files...
-        console.log(event.target.files[0])
+        if (selectedFile) alert('File Updated!')
         setSelectedFile(event.target.files[0])
     }
-
 
     const {
         acceptedFiles,
@@ -47,7 +46,7 @@ const Contact = () => {
         isDragActive,
         isDragReject,
         isDragAccept
-    } = useDropzone();
+    } = useDropzone({ maxFiles: 1 });
 
     const style = useMemo(() => ({
         ...baseStyle,
@@ -61,24 +60,19 @@ const Contact = () => {
     ]);
 
     useEffect(() => {
-        console.log(222222222222222222222222222222222222222222222222222)
-
+        if (acceptedFiles.length == 1 && selectedFile) {
+            alert('File Updated!')
+        }
+        console.log('aaaaaaaaaaaa', acceptedFiles, 'length', acceptedFiles.length)
+        setSelectedFile(acceptedFiles[0])
     }, [acceptedFiles])
-
-    const acceptedFileItems = acceptedFiles.map(file => (
-        <li key={file.path}>
-            {console.log(file)}
-            {file.path} - {file.size} bytes
-        </li>
-    ));
-
-
+    console.log('state', selectedFile)
     return (
         <form action="" class="form bg-white p-6 my-10 relative" className={'contact-us'}>
 
             <div class="icon bg-blue-600 text-white w-6 h-6 absolute flex items-center justify-center p-4" styles="left:-40px"><i class="fal fa-phone-volume fa-fw text-2xl transform -rotate-45"></i></div>
             <h3 class="text-2xl text-gray-900 font-semibold">Apply Now!</h3>
-            <p class="text-gray-600"> If you want to be a part of great team</p>
+            <p class="text-gray-600">Be a part of amazing team</p>
             <div class="flex space-x-5 mt-3">
                 <input type="text" name="" id="" placeholder="Your Name" class="border p-2  w-1/2" />
                 <input type="tel" name="" id="" placeholder="Your Number" class="border p-2 w-1/2" />
@@ -105,29 +99,14 @@ const Contact = () => {
                 }
                 <div class="flex text-sm text-gray-600">
                     <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                        <input {...getInputProps()} onChange={onFileInputChange} onSelect={(e) => { console.log(e.target) }} />
+                        <input {...getInputProps()} multiple={false} onChange={onFileInputChange} onSelect={(e) => { console.log(e.target) }} />
                     </label>
-                    <p class="pl-1">Tap here or drag and drop</p>
+                    <p class="pl-1">Tap to browse or drag and drop</p>
                 </div>
                 <p class="text-xs text-gray-500">
                     PNG, JPG, PDF up to 10MB
                 </p>
             </div>
-            {/* <div class="space-y-1 text-center">
-                    <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                        <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    <div class="flex text-sm text-gray-600">
-                        <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                            <input id="file-upload" name="file-upload" type="file" class="sr-only" onChange={onFileInputChange} />
-
-                        </label>
-                        <p class="pl-1">Tap here or drag and drop</p>
-                    </div>
-                    <p class="text-xs text-gray-500">
-                        PNG, JPG, PDF up to 10MB
-                    </p>
-                </div> */}
 
             <textarea name="" id="" cols="10" rows="3" placeholder="Tell us about yourself" class="border p-2 mt-3 w-full"></textarea>
             <p class="font-bold text-sm mt-3">GDPR Agreement *</p>
