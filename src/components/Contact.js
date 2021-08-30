@@ -35,7 +35,6 @@ const Contact = () => {
     const onFileInputChange = (event) => {
         const { files } = event.target;
         // do something with your files...
-        if (selectedFile) alert('File Updated!')
         setSelectedFile(event.target.files[0])
     }
 
@@ -60,14 +59,10 @@ const Contact = () => {
     ]);
 
     useEffect(() => {
-        if (acceptedFiles.length == 1 && selectedFile) {
-            alert('File Updated!')
-        }
-        console.log('aaaaaaaaaaaa', acceptedFiles, 'length', acceptedFiles.length)
         setSelectedFile(acceptedFiles[0])
     }, [acceptedFiles])
-    console.log('state', selectedFile)
     return (
+
         <form action="" class="form bg-white p-6 my-10 relative" className={'contact-us'}>
 
             <div class="icon bg-blue-600 text-white w-6 h-6 absolute flex items-center justify-center p-4" styles="left:-40px"><i class="fal fa-phone-volume fa-fw text-2xl transform -rotate-45"></i></div>
@@ -103,9 +98,18 @@ const Contact = () => {
                     </label>
                     <p class="pl-1">Tap to browse or drag and drop</p>
                 </div>
-                <p class="text-xs text-gray-500">
-                    PNG, JPG, PDF up to 10MB
-                </p>
+                {
+                    selectedFile ? (
+                        <p class={"text-xs text-gray-500"}>
+                            {selectedFile.name}
+                        </p>
+                    ) : (
+
+                        <p class="text-xs text-gray-500">
+                            PNG, JPG, PDF up to 10MB
+                        </p>
+                    )
+                }
             </div>
 
             <textarea name="" id="" cols="10" rows="3" placeholder="Tell us about yourself" class="border p-2 mt-3 w-full"></textarea>
@@ -116,7 +120,7 @@ const Contact = () => {
             </div>
             <input type="submit" value="Submit" class="w-full mt-6 bg-blue-600 hover:bg-blue-500 text-white font-semibold p-3" />
 
-        </form>
+        </form >
     );
 }
 
