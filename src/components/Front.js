@@ -36,9 +36,11 @@ const Front = props => {
 
                                     <a href="#" class="font-medium text-gray-500 hover:text-gray-900">About Us</a>
 
-                                    <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Our Goals</a>
+                                    <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Our Goal</a>
 
                                     <a href="#contact-us" class="font-medium text-gray-500 hover:text-gray-900">Apply Now</a>
+
+                                    <a href="#contact-us" class="font-medium text-gray-500 hover:text-gray-900">Contact Us</a>
 
                                     {/* <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a> */}
                                 </div>
@@ -76,9 +78,11 @@ const Front = props => {
 
                                     <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">About Us</a>
 
-                                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Our Goals</a>
+                                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Our Goal</a>
 
                                     <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Apply Now</a>
+                                    
+                                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Contact Us</a>
                                 </div>
                                 {/* <a href="#" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100">
                                     Log in
