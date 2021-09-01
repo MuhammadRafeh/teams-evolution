@@ -1,9 +1,8 @@
 import React from 'react';
-import SimpleMap from './Map';
 
 const Contact = props => {
     return (
-        <div className={'h-screen'}>
+        <div className={'h-screen mt-12'}>
 
             <div className={'w-full h-4/6 p-10'} style={{ backgroundColor: 'rgb(19,181,164)', textAlign: 'center' }}>
                 <p class={'text-white mb-7 font-medium'}>
