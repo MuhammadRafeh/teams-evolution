@@ -2,11 +2,11 @@ import React from 'react';
 
 const Contact = props => {
     return (
-        <div className={'h-screen mt-12'}>
+        <div className={'h-screen mt-12 contact'}>
 
             <div className={'w-full h-4/6 p-10'} style={{ backgroundColor: 'rgb(19,181,164)', textAlign: 'center' }}>
                 <p class={'text-white mb-7 font-medium'}>
-                    Contact information
+                    Contact Information
                 </p>
                 <p class={'text-white text-white-200 mb-8'} style={{ color: 'rgb(231,250,246)' }}>
                     You can contact us any time. We will reply you to clear all of your doubts and everything which you have.
